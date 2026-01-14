@@ -1,0 +1,8 @@
+numpy
+scipy
+pandas
+nibabel
+nilearn
+scikit-dimension
+statsmodels
+tqdm

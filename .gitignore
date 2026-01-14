@@ -1,0 +1,82 @@
+# Data and derivatives
+/sub-*/
+/derivatives/
+/bids_database/
+/outputs/
+/logs/
+/.scratch/
+
+# Analysis outputs
+/id_analysis_results_by_condition_*/
+/id_analysis_stats/
+/rsa_results_*/
+
+# Large intermediates
+/nibetaseries*.tsv
+/nibetaseries-*.tsv
+
+# Optional vendored repo
+/cebra/
+
+# Manuscript artifacts
+/reference_manuscript.pdf
+/docs/
+/code/paper/
+/code/behavior/
+/code/data/behavioral_data/
+/code/data/
+# Only keep preprocessing and analysis under code/fmri
+/code/fmri/*
+!/code/fmri/preprocessing/
+!/code/fmri/preprocessing/**
+!/code/fmri/analysis/
+!/code/fmri/analysis/**
+/code/fmri/preprocessing/nilearn_cache/
+/code/fmri/preprocessing/id_analysis_results_by_condition*/
+/code/fmri/preprocessing/id_vs_behavior_*/
+/code/fmri/preprocessing/fmriprep-*.tsv
+/code/fmri/preprocessing/fmriprep_slurm_file*.tsv
+/code/fmri/preprocessing/*.tsv
+/code/fmri/preprocessing/nibetaseries-array*.tsv
+/code/fmri/preprocessing/glob
+/code/fmri/preprocessing/os
+/code/bidscoin/
+
+# Analysis outputs under stats
+/code/fmri/analysis/stats/**/*.csv
+/code/fmri/analysis/stats/**/*.png
+/code/fmri/analysis/stats/**/behavior_plots/
+/code/fmri/analysis/stats/**/human_model_comparison/
+/code/fmri/analysis/stats/**/forgetexp/
+
+# Containers
+/singularity_images/
+
+# Local logs/artifacts
+/id_group_run.log
+/rsa_run.log
+/run_group.log
+/slurm-*.out
+/analysis/included_files.txt
+/nnUNetbatchscript.sh
+/CHANGES
+/.bidsignore
+/code/enviroment.txt
+/code/fmri/preprocessing/excludeListfMRI.txt
+/scripts/figures/
+
+# Python/R artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.errors
+*.Rhistory
+*.RData
+
+# OS/editor
+.DS_Store
+.vscode/
+/participants.tsv
+/participants.json
+/dataset_description.json
