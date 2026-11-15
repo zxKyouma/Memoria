@@ -25,7 +25,7 @@ import pandas as pd
 # Configuration
 # ---------------------------------------------------------------------
 
-PROJECT_ROOT = Path("/home/zlow/by84/Brandon/memoria")
+PROJECT_ROOT = Path(os.environ.get("MEMORIA_ROOT", "."))
 
 # Default input from compute_dimensionality_group.py
 GROUP_ID_CSV = PROJECT_ROOT / "id_analysis_results_by_condition_ses-2_forgetexp" / "group_id_full_results_by_condition.csv"

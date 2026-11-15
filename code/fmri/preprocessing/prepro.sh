@@ -1,6 +1,4 @@
 #!/bin/bash
-#SBATCH --mail-user=tom.willems@unibe.ch
-#SBATCH --mail-type=fail,end #,ARRAY_TASKS
 #SBATCH --job-name=prepro
 #
 #

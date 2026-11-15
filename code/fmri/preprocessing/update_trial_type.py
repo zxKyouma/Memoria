@@ -19,7 +19,7 @@ def modify_retrieval_events_files(base_directory):
 
     Args:
         base_directory (str): The absolute path to the directory containing
-                              the subject folders (e.g., '/home/zlow/by84/Brandon/memoria/').
+                              the subject folders (e.g., os.environ.get("MEMORIA_ROOT", ".")).
     """
     print(f"Starting to process files in: {base_directory}")
 
@@ -83,7 +83,7 @@ def modify_retrieval_events_files(base_directory):
 
 # IMPORTANT: Before running, ensure this path is correct and
 # consider backing up your data.
-base_dir = '/home/zlow/by84/Brandon/memoria/'
+base_dir = os.environ.get("MEMORIA_ROOT", ".")
 
 modify_retrieval_events_files(base_dir)
 

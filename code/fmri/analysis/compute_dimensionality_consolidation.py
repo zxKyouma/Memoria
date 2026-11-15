@@ -19,7 +19,7 @@ from tqdm import tqdm
 
 
 # --- USER CONFIGURATION ---
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 SESSION_ID = "1"
 ENC_TASK = "forgetexp"
 CONS_TASK = "consolidation"

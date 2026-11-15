@@ -3,6 +3,7 @@
 Mean activation control: compute mean beta amplitude per ROI/condition and fit
 ID ~ Condition + Mean_Beta + (1|Subject) for cleaned Enc vs Ret and persistent trace.
 """
+import os
 import argparse
 from pathlib import Path
 from typing import Dict, List, Tuple
@@ -14,7 +15,7 @@ import nibabel as nib
 from nibabel.processing import resample_from_to
 import re
 
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 TASK_NAME = "forgetexp"
 MIN_TRIALS = 4
 RANDOM_SEED = 42

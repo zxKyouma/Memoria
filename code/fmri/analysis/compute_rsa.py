@@ -22,7 +22,7 @@ from model import BetaVAE
 # ==============================================================================
 #                             CONFIGURATION (Unchanged)
 # ==============================================================================
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 SESSION_LABEL = "1"
 TASK_LABEL = "Enc"
 MODEL_PATH = "./outputs/saved_models/bvae_beta2_latent32_final.pth"

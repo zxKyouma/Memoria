@@ -1,18 +1,15 @@
 #!/bin/bash
 #SBATCH --job-name=rel_id_summary
-#SBATCH --partition=comp
 #SBATCH --time=02:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
-#SBATCH --output=/home/zlow/by84/Brandon/memoria/logs/rel_id_summary_%j.out
-#SBATCH --error=/home/zlow/by84/Brandon/memoria/logs/rel_id_summary_%j.err
+#SBATCH --output=logs/rel_id_summary_%j.out
+#SBATCH --error=logs/rel_id_summary_%j.err
 
-cd /home/zlow/by84/Brandon/memoria
-
-module load miniforge3/24.3.0-0
-conda activate nnunet
+cd "${MEMORIA_ROOT:-$PWD}"
+# Activate your Python environment here (see requirements.txt)
 
 python code/fmri/analysis/analyze_reliability_vs_id.py \
   --reliability-csv id_analysis_stats/pattern_reliability_enc_vs_ret_cleaned/pattern_reliability.csv \

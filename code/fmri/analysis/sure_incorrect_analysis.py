@@ -12,7 +12,7 @@ import pingouin as pg
 import re
 
 # --- USER CONFIGURATION ---
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 BIDS_TASK_NAME = "forgetexp"
 ROIS_TO_ANALYZE = ["V1", "hV4", "LOIT", "phc", "hippocampus"]
 RANDOM_SEED = 42

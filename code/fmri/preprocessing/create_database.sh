@@ -3,15 +3,13 @@
 #SBATCH -n 1
 #SBATCH --time=00:30:00
 #SBATCH --mem=8G
-#SBATCH -o /fs04/by84/Brandon/memoria/logs/nibetaseries/%x-%j.out
-#SBATCH -e /fs04/by84/Brandon/memoria/logs/nibetaseries/%x-%j.err
-#SBATCH --mail-user=zlow0014@student.monash.edu
-#SBATCH --mail-type=end
+#SBATCH -o logs/nibetaseries/%x-%j.out
+#SBATCH -e logs/nibetaseries/%x-%j.err
 
 echo "--- JOB START: BIDS DATABASE GENERATION (v0.6.0 compatible) ---"
 
 # --- Define paths ---
-PROJECT_DIR="/fs04/by84/Brandon/memoria"
+PROJECT_DIR="${MEMORIA_ROOT:-$PWD}"
 FMRIPREP_DIR="${PROJECT_DIR}/derivatives/fMRIprepNoSbref"
 NIBETASERIES_IMG="${PROJECT_DIR}/singularity_images/nibetaseries-v0.6.0.simg"
 

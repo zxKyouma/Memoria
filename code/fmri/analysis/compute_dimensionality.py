@@ -7,7 +7,7 @@ from nilearn.maskers import NiftiMasker
 import skdim
 
 # --- USER CONFIGURATION ---
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 SUBJECT_ID = "62428"
 SESSION_ID = "1"
 TASK_NAME = "forgetexp"

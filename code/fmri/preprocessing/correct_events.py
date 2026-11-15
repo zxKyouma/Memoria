@@ -1,10 +1,11 @@
+import os
 import pandas as pd
 from pathlib import Path
 
 # --- Configuration ---
 # Set the top-level directory of your dataset.
 # The script will search for event files within this directory.
-BASE_DIR = Path("/home/zlow/by84/Brandon/memoria")
+BASE_DIR = Path(os.environ.get("MEMORIA_ROOT", "."))
 
 # Define the fixed sequence of event types for trials with missing responses.
 # Using a "_noResp" suffix is good practice for clarity.

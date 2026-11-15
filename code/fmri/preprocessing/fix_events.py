@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from pathlib import Path
 import shutil
@@ -5,7 +6,7 @@ import shutil
 # --- Configuration ---
 # Set the top-level directory of your dataset.
 # Must be the same as in the first script.
-BASE_DIR = Path("/home/zlow/by84/Brandon/memoria")
+BASE_DIR = Path(os.environ.get("MEMORIA_ROOT", "."))
 
 # The name of the backup directory to create inside each 'func' folder.
 BACKUP_DIR_NAME = "original_events"

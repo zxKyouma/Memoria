@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 # --- USER CONFIGURATION ---
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 TASK_NAME = "forgetexp"
 # TRIAL_TYPES_DEFAULT = ["Enc", "Face", "Recall", "Feedback"] # ses-1 forget-exp
 # TRIAL_TYPES_DEFAULT = ["recog", "faceRecog", "ret", "retRating", "retRatingFeedback", "recogRating", "recogFeedback", "recogRatingFeedback"] # ses-2 forget-exp

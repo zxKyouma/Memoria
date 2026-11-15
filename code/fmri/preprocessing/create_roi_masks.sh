@@ -20,7 +20,7 @@
 set -e
 
 # --- USER-CONFIGURABLE PATHS ---
-BIDS_DIR="/home/zlow/by84/Brandon/memoria"
+BIDS_DIR="${MEMORIA_ROOT}"
 FS_DIR="${BIDS_DIR}/derivatives/freesurfer"
 OUTPUT_BASE_DIR="${BIDS_DIR}/derivatives/roi_masks"
 # --- END OF CONFIGURATION ---

@@ -6,15 +6,13 @@
 #SBATCH --mem-per-cpu=16G   # Total memory = 12 * 16 = 192 GB
 # Outputs ----------------------------------
 # Log files will be saved in your project directory, which is fine.
-#SBATCH -o /home/zlow/by84/Brandon/memoria/logs/%x-%A-%a.out
-#SBATCH -e /home/zlow/by84/Brandon/memoria/logs/%x-%A-%a.err
-#SBATCH --mail-user=zlow0014@student.monash.edu
-#SBATCH --mail-type=fail,end,ARRAY_TASKS
+#SBATCH -o ${MEMORIA_ROOT}/logs/%x-%A-%a.out
+#SBATCH -e ${MEMORIA_ROOT}/logs/%x-%A-%a.err
 # ------------------------------------------
 
-PROJECT_DIR="/home/zlow/by84/Brandon/memoria"
+PROJECT_DIR="${MEMORIA_ROOT}"
 
-SCRATCH_DIR="/home/zlow/by84_scratch"
+SCRATCH_DIR="${SCRATCH_DIR:-/tmp}"
 
 BIDS_DIR="${PROJECT_DIR}"
 DERIVS_DIR="${PROJECT_DIR}/derivatives/fMRIprepNoSbref"
@@ -29,7 +27,7 @@ mkdir -p ${TEMPLATEFLOW_HOST_HOME} ${FMRIPREP_HOST_CACHE} ${SINGULARITY_WORK_DIR
 
 FMRIPREP_IMG="$PROJECT_DIR/singularity_images/fmriprep-23-2-0.simg"
 
-FS_LICENSE_ON_HOST="/home/zlow/by84/Brandon/freesurfer_license.txt"
+FS_LICENSE_ON_HOST="${FS_LICENSE:?set FS_LICENSE to your FreeSurfer license file}"
 # A simple path where we will make it available INSIDE the container
 FS_LICENSE_IN_CONTAINER="/fs_license.txt"
 

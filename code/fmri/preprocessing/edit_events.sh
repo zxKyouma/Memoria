@@ -2,7 +2,7 @@
 
 # The base directory where your subjects are located.
 # The script will start searching from here.
-BASE_DIR="/home/zlow/by84/Brandon/memoria"
+BASE_DIR="${MEMORIA_ROOT}"
 
 # Check if the directory exists
 if [ ! -d "$BASE_DIR" ]; then

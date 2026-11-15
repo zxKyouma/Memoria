@@ -5,6 +5,7 @@ Permutation test for the scale-dependence ladder (persistent trace vs hit).
 Computes per-subject hippocampus mean ΔID for each searchlight radius plus ROI-level ΔID,
 then tests whether the mean ladder slope is greater than expected under sign-flip permutations.
 """
+import os
 import argparse
 import csv
 from pathlib import Path
@@ -15,7 +16,7 @@ import nibabel as nib
 from nibabel.processing import resample_from_to
 
 
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 
 
 def mean_ci(values: np.ndarray) -> Tuple[float, float, float]:

@@ -3,6 +3,7 @@
 Compute ROI-level tSNR for encoding vs retrieval and correlate with ID.
 """
 
+import os
 import argparse
 from pathlib import Path
 from typing import Dict, List
@@ -14,7 +15,7 @@ from nilearn.maskers import NiftiMasker
 
 
 # --- USER CONFIGURATION ---
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 ROI_NAMES_IN_ORDER = ["V1", "hV4", "LOIT", "phc", "hippocampus"]
 ENC_SESSION = "1"
 RET_SESSION = "2"

@@ -24,7 +24,7 @@ from tqdm import tqdm
 
 
 # --- USER CONFIGURATION ---
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 TASK_NAME = "forgetexp"
 ROI_NAMES_DEFAULT = ["V1", "hV4", "LOIT", "phc", "hippocampus"]
 ROI_NAMES_IN_ORDER = ROI_NAMES_DEFAULT

@@ -1,18 +1,15 @@
 #!/bin/bash
 #SBATCH --job-name=rsa_hit_conf
-#SBATCH --partition=comp
-#SBATCH --output=/home/zlow/by84/Brandon/memoria/logs/rsa_hit_conf_%A.out
-#SBATCH --error=/home/zlow/by84/Brandon/memoria/logs/rsa_hit_conf_%A.err
+#SBATCH --output=logs/rsa_hit_conf_%A.out
+#SBATCH --error=logs/rsa_hit_conf_%A.err
 #SBATCH --time=06:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=32G
 
-cd /home/zlow/by84/Brandon/memoria
-
-module load miniforge3/24.3.0-0
-conda activate nnunet
+cd "${MEMORIA_ROOT:-$PWD}"
+# Activate your Python environment here (see requirements.txt)
 
 export MKL_THREADING_LAYER=SEQ
 export OMP_NUM_THREADS=1

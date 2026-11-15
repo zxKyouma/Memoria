@@ -10,7 +10,7 @@ import glob
 from nilearn.image import resample_to_img
 
 # --- USER-CONFIGURABLE PATHS AND SUFFIXES ---
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 ROI_DIR = os.path.join(BIDS_DIR, "derivatives", "roi_masks")
 
 # Define the specific ROI descriptions ('desc-<label>') you want to process.

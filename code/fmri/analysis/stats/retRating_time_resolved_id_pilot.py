@@ -5,6 +5,7 @@ Pilot: time-resolved ID around retRating onset (high vs low confidence).
 High = sure + unsure
 Low = guess
 """
+import os
 import argparse
 import json
 from pathlib import Path
@@ -17,7 +18,7 @@ from nibabel.processing import resample_from_to
 from sklearn.neighbors import NearestNeighbors
 
 
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 TASK_NAME = "forgetexp"
 SESSION_ID = "2"
 ROIS_DEFAULT = ["phc", "hippocampus"]

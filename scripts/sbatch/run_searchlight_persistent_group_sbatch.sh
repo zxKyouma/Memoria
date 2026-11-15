@@ -1,18 +1,15 @@
 #!/bin/bash
 #SBATCH --job-name=id_searchlight_persist_group
-#SBATCH --partition=comp
-#SBATCH --output=/home/zlow/by84/Brandon/memoria/logs/id_searchlight_persist_group_%A.out
-#SBATCH --error=/home/zlow/by84/Brandon/memoria/logs/id_searchlight_persist_group_%A.err
+#SBATCH --output=logs/id_searchlight_persist_group_%A.out
+#SBATCH --error=logs/id_searchlight_persist_group_%A.err
 #SBATCH --time=06:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=64G
 
-cd /home/zlow/by84/Brandon/memoria
-
-module load miniforge3/24.3.0-0
-conda activate nnunet
+cd "${MEMORIA_ROOT:-$PWD}"
+# Activate your Python environment here (see requirements.txt)
 
 export MKL_THREADING_LAYER=SEQ
 export OMP_NUM_THREADS=1

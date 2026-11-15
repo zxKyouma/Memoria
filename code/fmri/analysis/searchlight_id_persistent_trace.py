@@ -24,7 +24,7 @@ from scipy.spatial import cKDTree
 import skdim
 
 
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 TASK_NAME = "forgetexp"
 RANDOM_SEED = 42
 

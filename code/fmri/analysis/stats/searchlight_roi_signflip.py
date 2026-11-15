@@ -5,6 +5,7 @@ ROI-level sign-flip tests on persistent-trace searchlight maps.
 For each radius and ROI, compute per-subject mean ΔID within the ROI mask,
 then run a sign-flip permutation test on the subject means.
 """
+import os
 import argparse
 import csv
 from pathlib import Path
@@ -15,7 +16,7 @@ import nibabel as nib
 from nibabel.processing import resample_from_to
 
 
-BIDS_DIR = Path("/home/zlow/by84/Brandon/memoria")
+BIDS_DIR = Path(os.environ.get("MEMORIA_ROOT", "."))
 
 
 def mean_ci(values: np.ndarray) -> Tuple[float, float, float]:

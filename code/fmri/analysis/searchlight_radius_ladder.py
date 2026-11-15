@@ -2,6 +2,7 @@
 """
 Summarise persistent-trace searchlight results across radii and plot a ladder plot.
 """
+import os
 import argparse
 import csv
 from pathlib import Path
@@ -13,7 +14,7 @@ from nibabel.processing import resample_from_to
 import matplotlib.pyplot as plt
 
 
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 
 
 def mean_ci(values: np.ndarray) -> Tuple[float, float, float]:

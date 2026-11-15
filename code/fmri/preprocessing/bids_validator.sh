@@ -1,7 +1,7 @@
 # --- BIDS Validator Diagnostic ---
 
 # Define the paths to your data and singularity image
-BIDS_DIR="/home/zlow/by84/Brandon/memoria"
+BIDS_DIR="${MEMORIA_ROOT}"
 FMRIPREP_IMG="${BIDS_DIR}/singularity_images/fmriprep-23-2-0.simg"
 
 # Use 'singularity exec' to run a command INSIDE the container

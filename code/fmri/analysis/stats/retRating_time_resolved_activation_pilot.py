@@ -5,6 +5,7 @@ Pilot: time-resolved mean activation and RMS around retRating onset.
 High = sure + unsure
 Low = guess
 """
+import os
 import argparse
 import json
 from pathlib import Path
@@ -16,7 +17,7 @@ import nibabel as nib
 from nibabel.processing import resample_from_to
 
 
-BIDS_DIR = "/home/zlow/by84/Brandon/memoria"
+BIDS_DIR = os.environ.get("MEMORIA_ROOT", ".")
 TASK_NAME = "forgetexp"
 SESSION_ID = "2"
 ROIS_DEFAULT = ["phc", "hippocampus"]

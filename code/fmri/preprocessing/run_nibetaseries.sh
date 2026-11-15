@@ -6,10 +6,8 @@
 #SBATCH --mem=128G                             # ADAPTED: 24 GB of total memory is a safe amount
 # Outputs ----------------------------------
 # ADAPTED: Log files will be saved in a new 'nibetaseries_nosm' subfolder in your logs
-#SBATCH -o /fs04/by84/Brandon/memoria/logs/nibetaseries_nosm/%x-%A-%a.out
-#SBATCH -e /fs04/by84/Brandon/memoria/logs/nibetaseries_nosm/%x-%A-%a.err
-#SBATCH --mail-user=zlow0014@student.monash.edu
-#SBATCH --mail-type=fail,end,ARRAY_TASKS
+#SBATCH -o logs/nibetaseries_nosm/%x-%A-%a.out
+#SBATCH -e logs/nibetaseries_nosm/%x-%A-%a.err
 # ------------------------------------------
 
 # --- SETUP: Define paths and variables ---
@@ -18,8 +16,8 @@ export MKL_NUM_THREADS=1
 export NIPYPE_MAX_JOBS=2
 export NIPYPE_RESOURCE_MONITOR=1
 
-PROJECT_DIR="/fs04/by84/Brandon/memoria"
-SCRATCH_DIR="/fs04/by84_scratch"
+PROJECT_DIR="${MEMORIA_ROOT:-$PWD}"
+SCRATCH_DIR="${SCRATCH_DIR:-/tmp}"
 if [ ! -d "$SCRATCH_DIR" ] || [ ! -w "$SCRATCH_DIR" ]; then
   SCRATCH_DIR="${PROJECT_DIR}/.scratch"
 fi
@@ -32,7 +30,7 @@ FMRIPREP_DIR="${PROJECT_DIR}/derivatives/fMRIprepNoSbref"
 # --- OUTPUT PATH ---
 NIBETASERIES_DIR="${PROJECT_DIR}/derivatives/nibetaseries_nosm"
 mkdir -p ${NIBETASERIES_DIR}
-mkdir -p /fs04/by84/Brandon/memoria/logs/nibetaseries_nosm # Ensure log directory exists
+mkdir -p "${PROJECT_DIR}/logs/nibetaseries_nosm" # Ensure log directory exists
 
 NIBETASERIES_IMG="${PROJECT_DIR}/singularity_images/nibetaseries-v0.6.0.simg" # <-- IMPORTANT: Update this path!
 

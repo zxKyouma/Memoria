@@ -1,18 +1,15 @@
 #!/bin/bash
 #SBATCH --job-name=id_group_maps
-#SBATCH --partition=comp
 #SBATCH --time=04:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=128G
-#SBATCH --output=/home/zlow/by84/Brandon/memoria/logs/id_group_maps_%j.out
-#SBATCH --error=/home/zlow/by84/Brandon/memoria/logs/id_group_maps_%j.err
+#SBATCH --output=logs/id_group_maps_%j.out
+#SBATCH --error=logs/id_group_maps_%j.err
 
-cd /home/zlow/by84/Brandon/memoria
-
-module load miniforge3/24.3.0-0
-conda activate nnunet
+cd "${MEMORIA_ROOT:-$PWD}"
+# Activate your Python environment here (see requirements.txt)
 
 # 1. Persistent Trace r=5
 python code/fmri/analysis/searchlight_id_group.py \

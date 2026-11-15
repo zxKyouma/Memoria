@@ -4,14 +4,12 @@
 #SBATCH -n 1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=24G
-#SBATCH -o /home/zlow/by84/Brandon/memoria/logs/nibetaseries/%x-%A-%a.out
-#SBATCH -e /home/zlow/by84/Brandon/memoria/logs/nibetaseries/%x-%A-%a.err
-#SBATCH --mail-user=zlow0014@student.monash.edu
-#SBATCH --mail-type=fail,end,ARRAY_TASKS
+#SBATCH -o ${MEMORIA_ROOT}/logs/nibetaseries/%x-%A-%a.out
+#SBATCH -e ${MEMORIA_ROOT}/logs/nibetaseries/%x-%A-%a.err
 
 # --- SETUP: Define paths and variables ---
-PROJECT_DIR="/home/zlow/by84/Brandon/memoria"
-SCRATCH_DIR="/home/zlow/by84_scratch"
+PROJECT_DIR="${MEMORIA_ROOT}"
+SCRATCH_DIR="${SCRATCH_DIR:-/tmp}"
 
 # --- INPUT PATHS ---
 BIDS_DIR="${PROJECT_DIR}"
@@ -20,7 +18,7 @@ FMRIPREP_DIR="${PROJECT_DIR}/derivatives/fMRIprepNoSbref"
 # --- OUTPUT PATH ---
 NIBETASERIES_DIR="${PROJECT_DIR}/derivatives/nibetaseries"
 mkdir -p ${NIBETASERIES_DIR}
-mkdir -p /home/zlow/by84/Brandon/memoria/logs/nibetaseries
+mkdir -p ${MEMORIA_ROOT}/logs/nibetaseries
 
 NIBETASERIES_IMG="${PROJECT_DIR}/singularity_images/nibetaseries-v0.6.0.simg"
 
